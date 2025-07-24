@@ -83,7 +83,24 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        copy {
+            bindings = <&kp K_COPY>;
+            key-positions = <14 15>;
+        };
+
+        paste {
+            bindings = <&kp K_PASTE>;
+            key-positions = <15 16>;
+        };
+
+        cut {
+            bindings = <&kp K_CUT>;
+            key-positions = <16 14>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
