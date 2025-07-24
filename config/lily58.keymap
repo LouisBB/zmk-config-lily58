@@ -99,11 +99,11 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
             bindings = <
-&kp ESC    &trans                     &trans                     &trans                       &trans                  &trans                         &trans  &trans                   &trans                         &trans                       &trans                       &trans
-&kp TAB    &kp Q                      &kp W                      &kp E                        &kp R                   &kp T                          &kp Y   &kp U                    &kp I                          &kp O                        &kp SEMI                     &kp MINUS
-&kp LCTRL  &left_hold_tap LEFT_GUI A  &left_hold_tap LEFT_ALT S  &left_hold_tap LEFT_SHIFT D  &left_hold_tap LCTRL F  &kp G                          &kp H   &right_hold_tap RCTRL J  &right_hold_tap RIGHT_SHIFT K  &right_hold_tap RIGHT_ALT L  &right_hold_tap RIGHT_GUI P  &kp SQT
-&kp LSHFT  &kp Z                      &kp X                      &kp C                        &kp V                   &kp B   &kp LBKT     &kp RBKT  &kp N   &kp M                    &kp COMMA                      &kp DOT                      &kp FSLH                     &kp RSHFT
-                                                                 &kp LALT                     &kp LGUI                &mo 1   &kp SPACE    &kp RET   &mo 2   &kp BSPC                 &kp RGUI
+&kp ESC    &trans                     &trans                     &trans                       &trans                  &trans                        &trans  &trans                   &trans                         &trans                       &trans                       &trans
+&kp TAB    &kp Q                      &kp W                      &kp E                        &kp R                   &kp T                         &kp Y   &kp U                    &kp I                          &kp O                        &kp SEMI                     &kp MINUS
+&trans     &left_hold_tap LEFT_GUI A  &left_hold_tap LEFT_ALT S  &left_hold_tap LEFT_SHIFT D  &left_hold_tap LCTRL F  &kp G                         &kp H   &right_hold_tap RCTRL J  &right_hold_tap RIGHT_SHIFT K  &right_hold_tap RIGHT_ALT L  &right_hold_tap RIGHT_GUI P  &kp SQT
+&kp LSHFT  &kp Z                      &kp X                      &kp C                        &kp V                   &kp B   &trans       &trans   &kp N   &kp M                    &kp COMMA                      &kp DOT                      &trans                       &trans
+                                                                 &trans                       &kp LGUI                &mo 1   &kp SPACE    &kp RET  &mo 2   &kp BSPC                 &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -120,11 +120,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2    &bt BT_SEL 3           &bt BT_SEL 4                       &trans  &trans        &trans    &trans         &trans    &trans
-&trans          &c_cedille    &e_accent_grave  &e_accent_aigu  &e_accent_circonflexe  &u_accent_grave                    &trans  &kp EQUAL     &kp STAR  &kp KP_DIVIDE  &kp HASH  &kp DOLLAR
-&trans          &kp NUMBER_1  &kp NUMBER_2     &kp NUMBER_3    &kp NUMBER_4           &kp N5                             &trans  &kp QUESTION  &kp EXCL  &kp LPAR       &kp RPAR  &kp TILDE
-&trans          &kp NUMBER_6  &kp N7           &kp N8          &kp N9                 &kp N0           &trans    &trans  &trans  &kp MINUS     &kp PLUS  &kp LBRC       &kp RBRC  &kp PIPE
-                                               &trans          &trans                 &trans           &trans    &trans  &trans  &trans        &trans
+&bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2    &bt BT_SEL 3           &bt BT_SEL 4                       &trans             &trans        &trans    &trans     &trans    &trans
+&trans          &c_cedille    &e_accent_grave  &e_accent_aigu  &e_accent_circonflexe  &u_accent_grave                    &kp AT             &kp EQUAL     &kp STAR  &kp SLASH  &kp HASH  &kp DOLLAR
+&trans          &kp NUMBER_1  &kp NUMBER_2     &kp NUMBER_3    &kp NUMBER_4           &kp N5                             &kp LEFT_BRACKET   &kp QUESTION  &kp EXCL  &kp LPAR   &kp RPAR  &kp TILDE
+&trans          &kp NUMBER_6  &kp N7           &kp N8          &kp N9                 &kp N0           &trans    &trans  &kp RIGHT_BRACKET  &kp MINUS     &kp PLUS  &kp LBRC   &kp RBRC  &kp PIPE
+                                               &trans          &trans                 &trans           &trans    &trans  &trans             &trans        &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
