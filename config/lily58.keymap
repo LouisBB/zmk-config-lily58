@@ -89,16 +89,19 @@
         copy {
             bindings = <&kp K_COPY>;
             key-positions = <14 15>;
+            require-prior-idle-ms = <400>;
         };
 
         paste {
             bindings = <&kp K_PASTE>;
             key-positions = <15 16>;
+            require-prior-idle-ms = <400>;
         };
 
         cut {
             bindings = <&kp K_CUT>;
             key-positions = <16 14>;
+            require-prior-idle-ms = <400>;
         };
     };
 
