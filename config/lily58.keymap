@@ -14,8 +14,7 @@
 #define adjust_layer 3
 #define extra_layer 4
 
-&lt {
-};
+&lt { require-prior-idle-ms = <300>; };
 
 / {
     macros {
