@@ -108,13 +108,8 @@
 
         cut {
             bindings = <&kp K_CUT>;
-            key-positions = <16 14 44 46>;
+            key-positions = <44 46>;
             require-prior-idle-ms = <400>;
-        };
-
-        apostrophe {
-            bindings = <&kp APOSTROPHE>;
-            key-positions = <19 20>;
         };
 
         e_accent_aigu {
@@ -134,7 +129,7 @@
 
         a_accent_grave {
             bindings = <&a_accent_grave>;
-            key-positions = <39 40>;
+            key-positions = <39 38>;
         };
 
         e_accent_circonflexe {
