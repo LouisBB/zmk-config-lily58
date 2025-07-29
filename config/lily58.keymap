@@ -139,36 +139,6 @@
             key-positions = <41 39>;
             require-prior-idle-ms = <400>;
         };
-
-        e_accent_aigu {
-            bindings = <&e_accent_aigu>;
-            key-positions = <15 16>;
-        };
-
-        e_accent_grave {
-            bindings = <&e_accent_grave>;
-            key-positions = <14 15>;
-        };
-
-        u_accent_grave {
-            bindings = <&u_accent_grave>;
-            key-positions = <19 20>;
-        };
-
-        a_accent_grave {
-            bindings = <&a_accent_grave>;
-            key-positions = <34 35>;
-        };
-
-        e_accent_circonflexe {
-            bindings = <&none>;
-            key-positions = <14 16>;
-        };
-
-        c_cedille {
-            bindings = <&c_cedille>;
-            key-positions = <39 40>;
-        };
     };
 
     keymap {
