@@ -14,241 +14,237 @@
 #define adjust_layer 3
 #define extra_layer 4
 
-&lt { require-prior-idle-ms = <400>; };
-
 / {
+    macros {
+        e_accent_aigu: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_GUI &kp SQT &kp E>;
+            label = "NEW_MACRO";
+        };
 
-macros {
-    e_accent_aigu: new_macro {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp RIGHT_GUI &kp SQT &kp E>;
-        label = "NEW_MACRO";
+        e_accent_grave: e_accent_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_GUI &kp GRAVE &kp E>;
+            label = "E_ACCENT_GRAVE";
+        };
+
+        e_accent_circonflexe: e_accent_circonflexe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_GUI &kp CARET &kp E>;
+            label = "E_ACCENT_CIRCONFLEXE";
+        };
+
+        u_accent_grave: u_accent_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_GUI &kp GRAVE &kp U>;
+            label = "U_ACCENT_GRAVE";
+        };
+
+        c_cedille: c_cedille {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_GUI &kp COMMA &kp C>;
+            label = "C_CEDILLE";
+        };
+
+        a_accent_grave: a_accent_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_GUI &kp GRAVE &kp A>;
+            label = "A_ACCENT_GRAVE";
+        };
+
+        ctrl_tab: ctrl_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp TAB>;
+            label = "CTRL_TAB";
+        };
+
+        ctrl_shift_tab: ctrl_shift_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RCTRL &kp RIGHT_SHIFT &kp TAB>;
+            label = "CTRL_SHIFT_TAB";
+        };
     };
 
-    e_accent_grave: e_accent_grave {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp RIGHT_GUI &kp GRAVE &kp E>;
-        label = "E_ACCENT_GRAVE";
+    behaviors {
+        left_hold_tap: left_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_HOLD_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <700>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            hold-trigger-key-positions = <7 6 6 7 8 9 10 18 19 20 21 22 30 31 32 33 34 43 44 45 46 47 48 54 55 56 57 35 23 11 49>;
+            hold-trigger-on-release;
+        };
+
+        right_hold_tap: right_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_HOLD_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <700>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 42 50 51 52 53>;
+            hold-trigger-on-release;
+        };
+
+        tap_dance_nav_layer: tap_dance_nav_layer {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_NAV_LAYER";
+            #binding-cells = <0>;
+            bindings = <&mo 3>, <&tog 3>;
+        };
+
+        jescape: jescape {
+            compatible = "zmk,behavior-tap-dance";
+            label = "JESCAPE";
+            #binding-cells = <0>;
+            bindings = <&kp J>, <&kp ESCAPE>;
+        };
     };
 
-    e_accent_circonflexe: e_accent_circonflexe {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp RIGHT_GUI &kp CARET &kp E>;
-        label = "E_ACCENT_CIRCONFLEXE";
+    combos {
+        compatible = "zmk,combos";
+
+        copy {
+            bindings = <&kp K_COPY>;
+            key-positions = <39 40>;
+            require-prior-idle-ms = <400>;
+        };
+
+        paste {
+            bindings = <&kp K_PASTE>;
+            key-positions = <40 41>;
+            require-prior-idle-ms = <400>;
+        };
+
+        cut {
+            bindings = <&kp K_CUT>;
+            key-positions = <41 39>;
+            require-prior-idle-ms = <400>;
+        };
     };
 
-    u_accent_grave: u_accent_grave {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp RIGHT_GUI &kp GRAVE &kp U>;
-        label = "U_ACCENT_GRAVE";
-    };
+    keymap {
+        compatible = "zmk,keymap";
 
-    c_cedille: c_cedille {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp RIGHT_GUI &kp COMMA &kp C>;
-        label = "C_CEDILLE";
-    };
+        default_layer {
+            display-name = "Base";
 
-    a_accent_grave: a_accent_grave {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp RIGHT_GUI &kp GRAVE &kp A>;
-        label = "A_ACCENT_GRAVE";
-    };
+            // ------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
+            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
+            // |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
-    ctrl_tab: ctrl_tab {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp LCTRL &kp TAB>;
-        label = "CTRL_TAB";
-    };
-
-    ctrl_shift_tab: ctrl_shift_tab {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp RCTRL &kp RIGHT_SHIFT &kp TAB>;
-        label = "CTRL_SHIFT_TAB";
-    };
-};
-
-behaviors {
-    left_hold_tap: left_hold_tap {
-        compatible = "zmk,behavior-hold-tap";
-        label = "LEFT_HOLD_TAP";
-        bindings = <&kp>, <&kp>;
-
-        #binding-cells = <2>;
-        flavor = "balanced";
-        require-prior-idle-ms = <700>;
-        tapping-term-ms = <280>;
-        quick-tap-ms = <175>;
-        hold-trigger-key-positions = <7 6 6 7 8 9 10 18 19 20 21 22 30 31 32 33 34 43 44 45 46 47 48 54 55 56 57 35 23 11 49>;
-        hold-trigger-on-release;
-    };
-
-    right_hold_tap: right_hold_tap {
-        compatible = "zmk,behavior-hold-tap";
-        label = "RIGHT_HOLD_TAP";
-        bindings = <&kp>, <&kp>;
-
-        #binding-cells = <2>;
-        flavor = "balanced";
-        require-prior-idle-ms = <700>;
-        tapping-term-ms = <280>;
-        quick-tap-ms = <175>;
-        hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 42 50 51 52 53>;
-        hold-trigger-on-release;
-    };
-
-    tap_dance_nav_layer: tap_dance_nav_layer {
-        compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_NAV_LAYER";
-        #binding-cells = <0>;
-        bindings = <&mo 3>, <&tog 3>;
-    };
-
-    jescape: jescape {
-        compatible = "zmk,behavior-tap-dance";
-        label = "JESCAPE";
-        #binding-cells = <0>;
-        bindings = <&kp J>, <&kp ESCAPE>;
-    };
-};
-
-combos {
-    compatible = "zmk,combos";
-
-    copy {
-        bindings = <&kp K_COPY>;
-        key-positions = <39 40>;
-        require-prior-idle-ms = <400>;
-    };
-
-    paste {
-        bindings = <&kp K_PASTE>;
-        key-positions = <40 41>;
-        require-prior-idle-ms = <400>;
-    };
-
-    cut {
-        bindings = <&kp K_CUT>;
-        key-positions = <41 39>;
-        require-prior-idle-ms = <400>;
-    };
-};
-
-keymap {
-    compatible = "zmk,keymap";
-
-    default_layer {
-        display-name = "Base";
-
-        // ------------------------------------------------------------------------------------------------------------
-        // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
-        // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
-        // |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
-        // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-        //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
-
-        bindings = <
+            bindings = <
 &trans     &trans                     &trans                     &trans                  &trans  &trans                                    &trans         &trans                &trans                   &trans                       &trans                       &trans
 &kp TAB    &kp Q                      &kp W                      &kp E                   &kp R   &kp T                                     &kp Y          &kp U                 &kp I                    &kp O                        &kp COLON                    &trans
 &kp DEL    &left_hold_tap LEFT_GUI A  &left_hold_tap LEFT_ALT S  &left_hold_tap LCTRL D  &kp F   &kp G                                     &kp H          &kp J                 &right_hold_tap RCTRL K  &right_hold_tap RIGHT_ALT L  &right_hold_tap RIGHT_GUI P  &kp APOS
 &kp LCTRL  &kp Z                      &kp X                      &kp C                   &kp V   &kp B           &trans       &trans       &kp N          &kp M                 &kp COMMA                &kp DOT                      &kp SINGLE_QUOTE             &trans
                                                                  &trans                  &mo 1   &kp LEFT_SHIFT  &kp SPACE    &lt 2 ENTER  &kp BACKSPACE  &tap_dance_nav_layer  &trans
-        >;
+            >;
 
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-    sym {
-        display-name = "Lower";
+        sym {
+            display-name = "Lower";
 
-        // ------------------------------------------------------------------------------------------------------------
-        // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
-        // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
-        // |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
-        // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
-        //                     |      |      |      |        |  |       |      |       |       |
+            // ------------------------------------------------------------------------------------------------------------
+            // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
+            // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
+            // |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
+            // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
+            //                     |      |      |      |        |  |       |      |       |       |
 
-        bindings = <
+            bindings = <
 &trans  &trans           &trans                 &trans           &trans           &trans                    &trans        &trans            &trans             &trans    &trans    &trans
 &trans  &a_accent_grave  &e_accent_circonflexe  &e_accent_grave  &e_accent_aigu   &trans                    &kp KP_EQUAL  &kp LESS_THAN     &kp GREATER_THAN   &kp PIPE  &trans    &trans
 &trans  &kp KP_MINUS     &kp UNDER              &kp QUESTION     &kp EXCL         &trans                    &kp AMPS      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LPAR  &kp RPAR  &trans
 &trans  &trans           &trans                 &c_cedille       &u_accent_grave  &trans  &trans    &trans  &trans        &kp AT            &kp CARET          &kp AMPS  &trans    &trans
                                                 &trans           &trans           &trans  &trans    &trans  &trans        &trans            &trans
-        >;
+            >;
 
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-    num {
-        display-name = "Raise";
+        num {
+            display-name = "Raise";
 
-        // ------------------------------------------------------------------------------------------------------------
-        // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-        // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-        // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-        // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-        //                     |      |      |      |        |  |       |      |       |       |
+            // ------------------------------------------------------------------------------------------------------------
+            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
+            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
+            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
+            //                     |      |      |      |        |  |       |      |       |       |
 
-        bindings = <
+            bindings = <
 &trans     &trans     &trans    &trans     &trans     &trans                       &trans  &trans           &trans           &trans           &trans           &trans
 &kp GRAVE  &kp N1     &kp N2    &kp N3     &kp N4     &kp N5                       &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans           &trans
 &kp F1     &kp MINUS  &kp PLUS  &kp SLASH  &kp ASTRK  &kp EQUAL                    &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_NUMBER_0  &trans
 &kp F7     &kp F8     &kp F9    &kp F10    &kp F11    &kp F12    &trans    &trans  &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans           &trans
                                 &trans     &trans     &trans     &trans    &trans  &trans  &trans           &trans
-        >;
+            >;
 
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-    nav {
-        display-name = "Adjust";
+        nav {
+            display-name = "Adjust";
 
-        // ------------------------------------------------------------------------------------------------------------
-        // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-        // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-        // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-        // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-        //                     |      |      |      |        |  |       |      |       |       |
+            // ------------------------------------------------------------------------------------------------------------
+            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
+            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
+            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
+            //                     |      |      |      |        |  |       |      |       |       |
 
-        bindings = <
+            bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans             &trans    &trans         &trans         &trans                &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp C_VOLUME_UP    &trans    &kp PAGE_UP    &kp C_AC_HOME  &kp C_BRIGHTNESS_INC  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &kp LEFT_ARROW     &kp DOWN  &kp UP_ARROW   &kp RIGHT      &kp K_MUTE            &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp C_VOLUME_DOWN  &trans    &kp PAGE_DOWN  &kp END        &kp C_BRIGHTNESS_DEC  &trans
                         &trans  &trans  &trans  &trans    &trans  &trans             &trans    &trans
-        >;
+            >;
 
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
 
-    extra_layer {
-        display-name = "Extra";
+        extra_layer {
+            display-name = "Extra";
 
-        // ------------------------------------------------------------------------------------------------------------
-        // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-        // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-        // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-        // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-        //                     |      |      |      |        |  |       |      |       |       |
+            // ------------------------------------------------------------------------------------------------------------
+            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
+            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
+            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
+            //                     |      |      |      |        |  |       |      |       |       |
 
-        bindings = <
+            bindings = <
 &trans  &trans          &trans          &trans           &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &mmv MOVE_UP    &trans           &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &msc SCRL_DOWN                          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &trans          &trans           &trans  &msc SCRL_UP    &mkp LCLK    &mkp RCLK  &trans  &trans  &trans  &trans  &trans  &trans
                                         &trans           &trans  &trans          &trans       &trans     &trans  &trans  &trans
-        >;
+            >;
 
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
     };
-};
-
 };
