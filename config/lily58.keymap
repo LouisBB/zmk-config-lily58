@@ -166,7 +166,7 @@
 &kp TAB       &kp Q                      &kp W                      &kp E                   &kp R   &kp T                                     &kp Y           &kp U                 &kp I                    &kp O                        &kp COLON                    &trans
 &kp LEFT_ALT  &left_hold_tap LEFT_GUI A  &left_hold_tap LEFT_ALT S  &left_hold_tap LCTRL D  &kp F   &kp G                                     &kp H           &kp J                 &right_hold_tap RCTRL K  &right_hold_tap RIGHT_ALT L  &right_hold_tap RIGHT_GUI P  &kp APOS
 &kp LCTRL     &kp Z                      &kp X                      &kp C                   &kp V   &kp B           &trans       &trans       &kp N           &kp M                 &kp COMMA                &kp DOT                      &kp SINGLE_QUOTE             &trans
-                                                                    &trans                  &mo 1   &kp LEFT_SHIFT  &kp SPACE    &lt 2 ENTER  &backspace_del  &tap_dance_nav_layer  &trans
+                                                                    &kp LEFT_ALT            &mo 1   &kp LEFT_SHIFT  &kp SPACE    &lt 2 ENTER  &backspace_del  &tap_dance_nav_layer  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -186,7 +186,7 @@
 &trans  &trans           &trans                 &trans           &trans           &trans                    &trans        &trans            &trans             &trans    &trans       &trans
 &trans  &a_accent_grave  &e_accent_circonflexe  &e_accent_grave  &e_accent_aigu   &trans                    &kp KP_EQUAL  &kp LESS_THAN     &kp GREATER_THAN   &kp PIPE  &kp PERCENT  &trans
 &trans  &kp KP_MINUS     &kp UNDER              &kp QUESTION     &kp EXCL         &trans                    &kp AMPS      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LPAR  &kp RPAR     &trans
-&trans  &trans           &trans                 &c_cedille       &u_accent_grave  &trans  &trans    &trans  &trans        &kp AT            &kp CARET          &kp AMPS  &trans       &trans
+&trans  &trans           &trans                 &c_cedille       &u_accent_grave  &trans  &trans    &trans  &kp AT        &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp AMPS  &kp CARET    &trans
                                                 &trans           &trans           &trans  &trans    &trans  &trans        &trans            &trans
             >;
 
