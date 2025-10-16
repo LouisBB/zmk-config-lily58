@@ -185,7 +185,7 @@
             bindings = <
 &trans  &trans           &trans                 &trans           &trans           &trans                    &trans        &trans            &trans             &trans    &trans       &trans
 &trans  &a_accent_grave  &e_accent_circonflexe  &e_accent_grave  &e_accent_aigu   &trans                    &kp KP_EQUAL  &kp LESS_THAN     &kp GREATER_THAN   &kp PIPE  &kp PERCENT  &trans
-&trans  &kp KP_MINUS     &kp UNDER              &kp QUESTION     &kp EXCL         &trans                    &kp AMPS      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LPAR  &kp RPAR     &trans
+&trans  &kp KP_MINUS     &kp UNDER              &kp QUESTION     &kp EXCL         &trans                    &kp DOLLAR    &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LPAR  &kp RPAR     &trans
 &trans  &trans           &trans                 &c_cedille       &u_accent_grave  &trans  &trans    &trans  &kp AT        &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp AMPS  &kp CARET    &trans
                                                 &trans           &trans           &trans  &trans    &trans  &trans        &trans            &trans
             >;
